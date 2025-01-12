@@ -8,7 +8,10 @@ Sketch'n'Solve is a React-based application that allows users to draw mathematic
 ## Demo
 
 
-[Download the Demo Video](src/assets/sketchdemo.mov)
+<video width="800" height="450" controls>
+  <source src="src/assets/sketchdemo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 
 ## Features
