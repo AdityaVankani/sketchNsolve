@@ -57,7 +57,7 @@ Sketch'n'Solve is a React-based application that allows users to draw mathematic
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AdityaVankani/sketch-n-solve.git
+   git clone https://github.com/AdityaVankani/sketchNsolve.git
    cd sketch-n-solve
 
 2. Run locally
