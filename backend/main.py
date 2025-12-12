@@ -16,13 +16,16 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)   
 
 origins = [
+    "https://sketchnsolvefrontend.vercel.app",
+    "https://sketchnsolvefrontend.vercel.app/",
     "http://localhost:5173",
-    "https://sketchnsolvefrontend.vercel.app"
+    
+
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
