@@ -200,7 +200,7 @@ export default function Home() {
           }
       });
         const res_data = await res.data;
-        console.log(res_data.data);
+        // console.log(res_data.data);
         res_data.data.forEach((ele:resp)=>{
 
           if(ele.assign===true){

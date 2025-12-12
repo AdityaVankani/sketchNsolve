@@ -21,7 +21,7 @@ async def run(data: ImageData):
     data=[]
     for r in res:
         data.append(r)
-    print(data)
+    # print(data)
     return {
         "msg": "success",
         "data":data

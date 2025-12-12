@@ -8,7 +8,7 @@ from PIL import Image
 genai.configure(api_key=gemini_api_key)
 
 def ana_img(img:Image ,dict_of_var=dict):
-    model= genai.GenerativeModel(model_name='gemini-1.5-flash')
+    model= genai.GenerativeModel(model_name='gemini-2.5-flash')
     dict_str=json.dumps(dict_of_var,ensure_ascii=False)
     prompt = (
         f"You have been given an image with some mathematical expressions, equations, or graphical problems, and you need to solve them. "
@@ -25,22 +25,24 @@ def ana_img(img:Image ,dict_of_var=dict):
         f"3. Assigning values to variables like x = 4, y = 5, z = 6, etc.: In this case, assign values to variables and return another key in the dict called {{'assign': True}}, keeping the variable as 'expr' and the value as 'result' in the original dictionary. RETURN AS A LIST OF DICTS. "
         f"4. Analyzing Graphical Math problems, which are word problems represented in drawing form, such as cars colliding, trigonometric problems, problems on the Pythagorean theorem, adding runs from a cricket wagon wheel, etc. These will have a drawing representing some scenario and accompanying information with the image. PAY CLOSE ATTENTION TO DIFFERENT COLORS FOR THESE PROBLEMS. You need to return the answer in the format of a LIST OF ONE DICT [{{'expr': given expression, 'result': calculated answer}}]. "
         f"5. Detecting Abstract Concepts that a drawing might show, such as love, hate, jealousy, patriotism, or a historic reference to war, invention, discovery, quote, etc. USE THE SAME FORMAT AS OTHERS TO RETURN THE ANSWER, where 'expr' will be the explanation of the drawing, and 'result' will be the abstract concept. "
+        f"6. Give short answer if the image is not mathametical and just english."
         f"Analyze the equation or expression in this image and return the answer according to the given rules: "
         f"Make sure to use extra backslashes for escape characters like \\f -> \\\\f, \\n -> \\\\n, etc. "
         f"Here is a dictionary of user-assigned variables. If the given expression has any of these variables, use its actual value from this dictionary accordingly: {dict_str}. "
         f"DO NOT USE BACKTICKS OR MARKDOWN FORMATTING. "
         f"PROPERLY QUOTE THE KEYS AND VALUES IN THE DICTIONARY FOR EASIER PARSING WITH Python's ast.literal_eval."
+        # f"if there is code in result then give whole code in format of ast.litereal_eval and then pass whole code to result:"
         f"don't give answer in this format```json\n{dict_str}\n``` so i can convert in ast.literal_eval"
     )
 
     res=model.generate_content([prompt,img])
-    print(res.text)
+    # print(res.text)
     ans=[]
     try:
         ans = ast.literal_eval(res.text)
     except Exception as e:
         print(f"Error in parsing response from Gemini API: {e}")
-    print('returned answer ', ans)
+    # print('returned answer ', ans)
     for answer in ans:
         if 'assign' in answer:
             answer['assign'] = True
