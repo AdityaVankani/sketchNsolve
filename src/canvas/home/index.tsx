@@ -193,7 +193,7 @@ export default function Home() {
       try {
         const res = await axios({
           method: 'post',
-          url: `http://localhost:3000/calc`,
+          url: `https://sketchnsolvebackend.vercel.app/calc`,
           data: {
               image: canvas.toDataURL('image/png'),
               dict_of_var: dict

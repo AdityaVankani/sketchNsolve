@@ -17,7 +17,7 @@ app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost:5173",
-    
+    "https://sketchnsolvefrontend.vercel.app"
 ]
 
 app.add_middleware(
