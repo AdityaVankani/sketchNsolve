@@ -5,11 +5,11 @@ Sketch'n'Solve is a React-based application that allows users to draw mathematic
 ---
 
 
-## Try your own
+## Try It !
 
 Access the live hosted website using below url:
 
-[https://sketchnsolvefrontend.vercel.app] (https://sketchnsolvefrontend.vercel.app)
+[https://sketchnsolvefrontend.vercel.app](https://sketchnsolvefrontend.vercel.app)
 
 Demo video for website guide: 
 [Watch Demo Video](https://drive.google.com/file/d/1EPh3Yhqr6Uv0Zco8K_Ed50RjgeJOX4hr/view?usp=sharing)
